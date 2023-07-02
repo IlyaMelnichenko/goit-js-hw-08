@@ -1,6 +1,7 @@
 // Add imports above this line
 import { galleryItems } from './gallery-items';
 import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
 
 // Change code below this line
@@ -10,6 +11,7 @@ const refs = {
     list : document.querySelector('.gallery'),
 
 };
+refs.list.style.listStyle='none';
 const listItemsGalery = creatItemsGalery(galleryItems);
 refs.list.insertAdjacentHTML("beforeend", listItemsGalery);
 document.addEventListener('DOMContentLoaded', onItemClick);
