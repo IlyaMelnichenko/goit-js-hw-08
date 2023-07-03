@@ -8,20 +8,20 @@ const formState = JSON.parse(localStorage.getItem('feedback-form-state')) ?? { e
 emailInput.value = formState.email;
 messageInput.value = formState.message;
 
-const localStorageData = {};
+
 
 emailInput.addEventListener('input', () => {
   const emailValue = emailInput.value;
-  localStorageData.email = emailValue;
+  formState .email = emailValue;
 });
 
 messageInput.addEventListener('input', () => {
   const messageValue = messageInput.value;
-  localStorageData.message = messageValue;
+  formState .message = messageValue;
 });
 
 form.addEventListener('input', throttle(() => {
-  localStorage.setItem('feedback-form-state', JSON.stringify(localStorageData));
+  localStorage.setItem('feedback-form-state', JSON.stringify(formState));
 }, 500));
 
 form.addEventListener('submit', function(event) {
