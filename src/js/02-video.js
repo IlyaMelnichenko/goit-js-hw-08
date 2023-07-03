@@ -8,9 +8,9 @@ const player = new Player('vimeo-player', {
 });
 
 const timeUpdater = function(data){
-    localStorage.setItem("videoplayer-current-time",JSON.stringify(data.seconds));
-};
-const throttledTimeUpdater = throttle(timeUpdater,1000);
+    localStorage.setItem("videoplayer-current-time",JSON.stringify(data.seconds));};
+    const throttledTimeUpdater = throttle(timeUpdater,1000);
+
 player.on('timeupdate',throttledTimeUpdater);
 const startTime = JSON.parse(localStorage.getItem("videoplayer-current-time")) ?? 0;
 
