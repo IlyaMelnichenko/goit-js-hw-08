@@ -25,6 +25,9 @@ form.addEventListener('input', throttle(() => {
 }, 500));
 
 form.addEventListener('submit', function(event) {
+  if (emailInput.value !== "" & messageInput.value !== ""){
+    
+  
   event.preventDefault();
   console.log('Form data:', formState);
   localStorage.removeItem('feedback-form-state');
@@ -32,5 +35,6 @@ form.addEventListener('submit', function(event) {
   formState.message = '';
   emailInput.value = '';
   messageInput.value = '';
+  }else{alert("Заповніть форму");}
   
 });
